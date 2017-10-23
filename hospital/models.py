@@ -16,6 +16,27 @@ class Doctor(models.Model):
     doctor_age = models.CharField(max_length=200)
     doctor_qualification = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.doctor_name
+
+
+class Ward(models.Model):
+    ward_number = models.CharField(max_length=200)
+    ward_type = models.CharField(max_length=200)
+    admitted_date = models.DateTimeField(blank=True, null=True)
+
+    def __str__(self):
+        return self.ward_number
+
+
+class Receptionist(models.Model):
+    receptionist_name = models.CharField(max_length=200)
+    receptionist_age = models.CharField(max_length=200)
+    receptionist_qualification = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.receptionist_name
+
 
 class Patient(models.Model):
     patient_name = models.CharField(max_length=200)
@@ -34,18 +55,4 @@ class Patient(models.Model):
         self.save()
 
     def __str__(self):
-        return self.title
-
-
-class Ward(models.Model):
-    ward_number = models.CharField(max_length=200)
-    ward_type = models.CharField(max_length=200)
-    admitted_date = models.DateTimeField(blank=True, null=True)
-
-
-class Receptionist(models.Model):
-    receptionist_name = models.CharField(max_length=200)
-    receptionist_age = models.CharField(max_length=200)
-    receptionist_qualification = models.CharField(max_length=200)
-
-
+        return self.patient_name
